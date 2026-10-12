@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Tom's Day</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: the day as a time rail down the left, like a smoker log. Same Coolina board as the weekly review. */
+:root{
+  --bg:#0E0E0E; --panel:#171615; --line:#2A2726; --fg:#F4F1EE; --muted:#A39C97; --red:#FF0000; --red-soft:rgba(255,0,0,.14);
+  --display:"Oswald","Arial Narrow",Impact,sans-serif; --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;margin:0}
+.wrap{max-width:760px;margin:0 auto;padding-inline:20px;padding-block:0 72px}
+h1,h2,h3,.eyebrow,.time,.place,nav a{font-family:var(--display);text-transform:uppercase;letter-spacing:.02em}
+nav{display:flex;gap:20px;padding-block:20px 0}
+nav a{color:var(--muted);text-decoration:none;font-size:14px;letter-spacing:.14em;padding-bottom:4px;border-bottom:2px solid transparent}
+nav a[aria-current]{color:var(--fg);border-color:var(--red)}
+nav a:focus-visible{outline:2px solid var(--red);outline-offset:4px}
+.hero{padding-block:40px 36px;border-bottom:3px solid var(--red);display:grid;gap:14px}
+.eyebrow{color:var(--red);font-size:14px;letter-spacing:.16em;font-weight:500}
+h1{font-size:clamp(44px,11vw,84px);line-height:.92;margin:0;font-weight:700}
+h1 span{color:var(--red)}
+.hero p{margin:0;color:var(--muted);font-size:18px;max-width:46ch}
+section{padding-block:44px 0;display:grid;gap:18px}
+h2{font-size:30px;margin:0;font-weight:700;display:flex;align-items:center;gap:12px}
+h2::before{content:"";width:10px;height:26px;background:var(--red);flex:none}
+.rail{list-style:none;margin:0;padding:0;display:grid}
+.rail li{display:grid;grid-template-columns:120px 1fr;gap:20px;position:relative;padding-bottom:26px}
+.rail li::before{content:"";position:absolute;left:131px;top:10px;bottom:-4px;width:2px;background:var(--line)}
+.rail li:last-child::before{display:none}
+.rail li::after{content:"";position:absolute;left:126px;top:6px;width:12px;height:12px;background:var(--bg);border:2px solid var(--red);border-radius:50%}
+.rail li.cook::after{background:var(--red)}
+.time{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2;text-align:right;padding-right:22px}
+.body{display:grid;gap:4px;padding-left:22px;min-width:0}
+.place{font-size:12px;letter-spacing:.16em;color:var(--muted)}
+.cook .place{color:var(--red)}
+.body h3{margin:0;font-size:22px;font-weight:700}
+.body p{margin:0;color:var(--muted)}
+.cook .body{background:var(--red-soft);border:1px solid rgba(255,0,0,.35);padding:14px 16px 14px 22px;margin-left:10px}
+.shots{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.shots span{font-family:var(--display);text-transform:uppercase;font-size:13px;letter-spacing:.1em;border:1px solid var(--red);color:var(--fg);padding:2px 10px}
+.posts{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.posts div{background:var(--panel);border:1px solid var(--line);padding:14px 10px;display:grid;gap:2px;text-align:center;min-width:0}
+.posts b{font-family:var(--display);font-size:30px;line-height:1;color:var(--red)}
+.posts span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.facts{display:grid;gap:10px}
+.facts p{margin:0;padding-left:16px;border-left:3px solid var(--red)}
+.facts b{font-family:var(--display);text-transform:uppercase;font-weight:500;letter-spacing:.04em;margin-right:4px}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.note{border-top:3px solid var(--red);background:var(--panel);padding:16px 18px;display:grid;gap:6px;align-content:start}
+.note h3{margin:0;font-size:20px;font-weight:700}
+.note p{margin:0;color:var(--muted);font-size:15px}
+.note a{color:var(--fg)}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.12em;font-family:var(--display)}
+@media (max-width:560px){
+  .rail li{grid-template-columns:1fr;gap:4px;padding-left:28px}
+  .rail li::before{left:5px;top:12px}
+  .rail li::after{left:0;top:6px}
+  .time{text-align:left;padding-right:0;font-size:18px}
+  .body{padding-left:0}
+  .cook .body{margin-left:0;padding-left:16px}
+  .posts{grid-template-columns:repeat(5,1fr);gap:6px}
+  .posts b{font-size:24px}
+  .posts span{font-size:10px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav aria-label="Tom's pages">
+    <a href="./">Weekly Review</a>
+    <a href="day.html" aria-current="page">Your Day</a>
+  </nav>
+
+  <header class="hero">
+    <div class="eyebrow">@tts.bbq · Monday to Friday</div>
+    <h1>Tom's <span>Day</span></h1>
+    <p>Office in the morning. Cook in the afternoon. 5 posts a day.</p>
+  </header>
+
+  <section>
+    <h2>Your day</h2>
+    <ol class="rail">
+      <li><div class="time">8:30</div><div class="body"><span class="place">Office</span><h3>Check your numbers</h3><p>Which videos are taking off?</p></div></li>
+      <li><div class="time">9:00</div><div class="body"><span class="place">Office</span><h3>Edit and post</h3><p>Finish the edits from yesterday's cook. Post 2 videos.</p></div></li>
+      <li><div class="time">10:00</div><div class="body"><span class="place">Office</span><h3>Swipe</h3><p>Scroll steak and BBQ videos. Save 5 with great hooks, text or audio. Save trending songs.</p></div></li>
+      <li><div class="time">10:45</div><div class="body"><span class="place">Office</span><h3>Plan the cook</h3><p>What will you make? Which shots do you need?</p></div></li>
+      <li class="cook"><div class="time">11:15</div><div class="body"><span class="place">Levy house · 5 min away</span><h3>Cook and film everything</h3><p>Film every step. While it cooks, write your texts and post stories.</p><div class="shots"><span>Raw</span><span>Prep</span><span>Cook</span><span>Reveal</span><span>Slice</span></div></div></li>
+      <li><div class="time">After</div><div class="body"><span class="place">Your choice</span><h3>Edit, post, upload</h3><p>Make 5 or more videos from today's cook. Post 3 more. Upload all raw footage to the portal. Finish when you're done.</p></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>5 posts a day</h2>
+    <div class="posts" aria-label="Five posts a day">
+      <div><b>1</b><span>Morning</span></div>
+      <div><b>2</b><span>Morning</span></div>
+      <div><b>3</b><span>Afternoon</span></div>
+      <div><b>4</b><span>Evening</span></div>
+      <div><b>5</b><span>Evening</span></div>
+    </div>
+    <div class="facts">
+      <p><b>Mix:</b> about 2 on your main page, 3 or more as trial reels. Use trial reels to test new text, new audio and re-edits.</p>
+      <p><b>Schedule:</b> Instagram can post for you later. Set your evening posts before you leave.</p>
+      <p><b>One day ahead:</b> today's cook gives you tomorrow's 5 posts.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Good to know</h2>
+    <div class="notes">
+      <div class="note"><h3>Mondays</h3><p>Start with your <a href="./">weekly review</a>, 9:00 to 9:30. Then the normal day.</p></div>
+      <div class="note"><h3>Long cooks</h3><p>Brisket or beef ribs? Start the smoker early. The house is 5 minutes away, so go back and forth and edit in between.</p></div>
+      <div class="note"><h3>Ad videos</h3><p>Sometimes Ben will ask for a special video for an ad. Fit it into your cook.</p></div>
+      <div class="note"><h3>Sundays</h3><p>Family day. If you cook and want to film, great. You don't have to.</p></div>
+    </div>
+  </section>
+
+  <footer>Coolina · Texas Style BBQ</footer>
+</div>
+</body>
+</html>
