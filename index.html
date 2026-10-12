@@ -36,7 +36,7 @@ h2::before{content:"";width:10px;height:26px;background:var(--red);flex:none}
 .steps li{display:grid;grid-template-columns:56px 140px 1fr;gap:12px;align-items:baseline;padding-block:14px;border-bottom:1px solid var(--line)}
 .num{color:var(--red);font-size:28px;font-weight:700;line-height:1}
 .steps strong{font-family:var(--display);text-transform:uppercase;font-size:19px;font-weight:500}
-.steps span{color:var(--muted);min-width:0}
+.steps .desc{color:var(--muted);min-width:0}
 .q{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .q li{background:var(--panel);border:1px solid var(--line);padding:14px 18px;display:flex;gap:14px;align-items:baseline}
 .q li .num{font-size:20px;flex:none}
@@ -70,8 +70,8 @@ h2::before{content:"";width:10px;height:26px;background:var(--red);flex:none}
 .take b{font-family:var(--display);text-transform:uppercase;font-weight:500;letter-spacing:.04em;margin-right:4px}
 footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.12em;font-family:var(--display)}
 @media (max-width:560px){
-  .steps li{grid-template-columns:44px 1fr}
-  .steps span{grid-column:2}
+  .steps li{grid-template-columns:36px 1fr;row-gap:2px}
+  .steps .desc{grid-column:2}
   .stats .l{font-size:11px}
 }
 @media (prefers-reduced-motion:no-preference){
@@ -102,12 +102,12 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
   <section>
     <h2>The 6 steps</h2>
     <ol class="steps">
-      <li><span class="num">1</span><strong>Numbers</strong><span>Insights, last 7 days. Write views, new followers, profile visits.</span></li>
-      <li><span class="num">2</span><strong>Winners</strong><span>Content, sort by Views. Pick your top 5.</span></li>
-      <li><span class="num">3</span><strong>Questions</strong><span>Answer the 5 questions below for each winner.</span></li>
-      <li><span class="num">4</span><strong>Watch time</strong><span>If you can see it: on your #1 video, where do people leave?</span></li>
-      <li><span class="num">5</span><strong>Pattern</strong><span>What do your winners have in common?</span></li>
-      <li><span class="num">6</span><strong>Plan</strong><span>Pick what to make next week. Ideas below.</span></li>
+      <li><span class="num">1</span><strong>Numbers</strong><span class="desc">Insights, last 7 days. Write views, new followers, profile visits.</span></li>
+      <li><span class="num">2</span><strong>Winners</strong><span class="desc">Content, sort by Views. Pick your top 5.</span></li>
+      <li><span class="num">3</span><strong>Questions</strong><span class="desc">Answer the 5 questions below for each winner.</span></li>
+      <li><span class="num">4</span><strong>Watch time</strong><span class="desc">If you can see it: on your #1 video, where do people leave?</span></li>
+      <li><span class="num">5</span><strong>Pattern</strong><span class="desc">What do your winners have in common?</span></li>
+      <li><span class="num">6</span><strong>Plan</strong><span class="desc">Pick what to make next week. Ideas below.</span></li>
     </ol>
   </section>
 
