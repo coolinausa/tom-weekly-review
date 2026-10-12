@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Tom's Weekly Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: one dark column like a pit-side menu board — red rules, big condensed caps, short lines. Single dark look by choice (Coolina brand). */
+:root{
+  --bg:#0E0E0E; --panel:#171615; --line:#2A2726; --fg:#F4F1EE; --muted:#A39C97; --red:#FF0000; --red-soft:rgba(255,0,0,.14); --bar:#4A4542;
+  --display:"Oswald","Arial Narrow",Impact,sans-serif; --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;margin:0}
+.wrap{max-width:760px;margin:0 auto;padding-inline:20px;padding-block:0 72px}
+h1,h2,h3,.eyebrow,.num,.tag{font-family:var(--display);text-transform:uppercase;letter-spacing:.02em}
+.hero{padding-block:56px 36px;border-bottom:3px solid var(--red);display:grid;gap:14px}
+.eyebrow{color:var(--red);font-size:14px;letter-spacing:.16em;font-weight:500}
+h1{font-size:clamp(44px,11vw,84px);line-height:.92;margin:0;font-weight:700;text-wrap:balance}
+h1 span{color:var(--red)}
+.hero p{margin:0;color:var(--muted);font-size:18px;max-width:46ch}
+section{padding-block:44px 0;display:grid;gap:18px}
+h2{font-size:30px;margin:0;font-weight:700;display:flex;align-items:center;gap:12px}
+h2::before{content:"";width:10px;height:26px;background:var(--red);flex:none}
+.goal{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.goal div{background:var(--panel);border:1px solid var(--line);padding:18px 20px}
+.goal b{display:block;font-family:var(--display);text-transform:uppercase;font-size:22px;font-weight:700;margin-bottom:4px}
+.goal .first b{color:var(--red)}
+.goal p{margin:0;color:var(--muted)}
+.steps{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid var(--line)}
+.steps li{display:grid;grid-template-columns:56px 140px 1fr;gap:12px;align-items:baseline;padding-block:14px;border-bottom:1px solid var(--line)}
+.num{color:var(--red);font-size:28px;font-weight:700;line-height:1}
+.steps strong{font-family:var(--display);text-transform:uppercase;font-size:19px;font-weight:500}
+.steps span{color:var(--muted);min-width:0}
+.q{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.q li{background:var(--panel);border:1px solid var(--line);padding:14px 18px;display:flex;gap:14px;align-items:baseline}
+.q li .num{font-size:20px;flex:none}
+.q li.big{border-color:var(--red);background:var(--red-soft)}
+.q li.big em{font-style:normal;color:var(--red);font-family:var(--display);text-transform:uppercase;font-size:13px;letter-spacing:.12em;margin-left:6px;white-space:nowrap}
+.ideas{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.idea{border-top:3px solid var(--red);background:var(--panel);padding:16px 18px;display:grid;gap:6px;align-content:start}
+.idea h3{margin:0;font-size:20px;font-weight:700}
+.idea p{margin:0;color:var(--muted);font-size:15px}
+.mix{border:1px dashed var(--red);padding:16px 20px;margin:0}
+.mix b{font-family:var(--display);text-transform:uppercase;color:var(--red);font-size:20px;margin-right:6px}
+.week-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px}
+.tag{color:var(--muted);font-size:14px;letter-spacing:.14em}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.stats div{background:var(--bg);padding:16px 14px;display:grid;gap:2px;min-width:0}
+.stats .v{font-family:var(--display);font-size:clamp(26px,7vw,40px);font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.stats .l{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.08em}
+.chart{display:grid;gap:18px;padding:22px 20px;background:var(--panel);border:1px solid var(--line)}
+.chart h3{margin:0;font-size:18px;color:var(--muted);font-weight:500;letter-spacing:.1em}
+.row{display:grid;gap:6px}
+.row-top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.row-top b{font-weight:600}
+.row-top .views{font-family:var(--display);font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
+.track{height:12px;background:#221F1E}
+.fill{height:100%;background:var(--bar)}
+.row.top .fill{background:var(--red)}
+.row.top .views{color:var(--red)}
+.row small{color:var(--muted);font-size:14px}
+.take{display:grid;gap:10px}
+.take p{margin:0;padding-left:16px;border-left:3px solid var(--red)}
+.take b{font-family:var(--display);text-transform:uppercase;font-weight:500;letter-spacing:.04em;margin-right:4px}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.12em;font-family:var(--display)}
+@media (max-width:560px){
+  .steps li{grid-template-columns:44px 1fr}
+  .steps span{grid-column:2}
+  .stats .l{font-size:11px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .fill{animation:grow .9s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes grow{from{width:0}}
+}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">@tts.bbq · Every Monday morning</div>
+    <h1>Tom's Weekly <span>Review</span></h1>
+    <p>30 minutes. Find your winners. Then make more of them.</p>
+  </header>
+
+  <section>
+    <h2>The goal</h2>
+    <div class="goal">
+      <div class="first"><b>Views first</b><p>Your best videos become hooks for Coolina ads.</p></div>
+      <div><b>Then the rest</b><p>Followers, shares and comments come next.</p></div>
+      <div><b>Winners only</b><p>Skip the videos that did badly.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The 6 steps</h2>
+    <ol class="steps">
+      <li><span class="num">1</span><strong>Numbers</strong><span>Insights, last 7 days. Write views, new followers, profile visits.</span></li>
+      <li><span class="num">2</span><strong>Winners</strong><span>Content, sort by Views. Pick your top 5.</span></li>
+      <li><span class="num">3</span><strong>Questions</strong><span>Answer the 5 questions below for each winner.</span></li>
+      <li><span class="num">4</span><strong>Watch time</strong><span>If you can see it: on your #1 video, where do people leave?</span></li>
+      <li><span class="num">5</span><strong>Pattern</strong><span>What do your winners have in common?</span></li>
+      <li><span class="num">6</span><strong>Plan</strong><span>Pick what to make next week. Ideas below.</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>The 5 questions</h2>
+    <ol class="q">
+      <li><span class="num">1</span><span>What happens in the first second?</span></li>
+      <li><span class="num">2</span><span>Is there text on screen? What does it say?</span></li>
+      <li><span class="num">3</span><span>What meat or cook is it?</span></li>
+      <li><span class="num">4</span><span>What sound is on it? Trending audio, cooking sounds, or your voice?</span></li>
+      <li class="big"><span class="num">5</span><span><strong>What stands out, compared to your other videos?</strong><em>The big one</em></span></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Ideas for next week</h2>
+    <div class="ideas">
+      <div class="idea"><h3>No-brainers</h3><p>Film new videos like your winners, with small changes.</p></div>
+      <div class="idea"><h3>Re-edit</h3><p>Make new videos from your winners' footage.</p></div>
+      <div class="idea"><h3>New text</h3><p>Try different texts on screen.</p></div>
+      <div class="idea"><h3>Trending audio</h3><p>Try a trending song. Look for the small arrow next to it.</p></div>
+    </div>
+    <p class="mix"><b>Mix them.</b>One video can use two or three ideas. Re-edit a winner, add new text, put a trending audio on it. Or take the original video and just add new text and audio.</p>
+  </section>
+
+  <section>
+    <div class="week-head"><h2>Week 1</h2><span class="tag">Oct 12 · your first month</span></div>
+    <div class="stats">
+      <div><span class="v">114,483</span><span class="l">Views</span></div>
+      <div><span class="v">+123</span><span class="l">New followers</span></div>
+      <div><span class="v">401</span><span class="l">Profile visits</span></div>
+    </div>
+    <div class="chart" id="chart">
+      <h3>Top 5 by views</h3>
+    </div>
+    <div class="take">
+      <p><b>Pattern:</b> Something new or surprising wins: a new place, a strange shape, a bone pull. Questions get comments, so put them on screen.</p>
+      <p><b>Watch time:</b> On the #1 video, 41% swiped away fast. People watched 6 seconds. Start with the action and add text.</p>
+    </div>
+  </section>
+
+  <footer>Coolina · Texas Style BBQ</footer>
+</div>
+
+<script>
+const winners = [
+  {name: "Ribeye halves, held up", views: 13744, note: "Held close to the camera. Pineapple behind."},
+  {name: "Beef rib bone pull", views: 11800, note: "Bone slides out clean. Most follows (9)."},
+  {name: "Steak stack, outside", views: 9444, note: "New place. Huge pile of meat."},
+  {name: "“Can you guess the cut?”", views: 8595, note: "A question. Most comments (7)."},
+  {name: "Skirt rolls", views: 7979, note: "Strange shape. Opinion in the caption."}
+];
+const peak = Math.max(...winners.map(w => w.views));
+const chart = document.getElementById("chart");
+winners.forEach((w, i) => {
+  const row = document.createElement("div");
+  row.className = i === 0 ? "row top" : "row";
+  row.innerHTML = `<div class="row-top"><b>${i + 1}. ${w.name}</b><span class="views">${(w.views / 1000).toFixed(1)}K</span></div>
+    <div class="track"><div class="fill" style="width:${(w.views / peak * 100).toFixed(1)}%"></div></div>
+    <small>${w.note}</small>`;
+  chart.appendChild(row);
+});
+</script>
+
+</body>
+</html>
