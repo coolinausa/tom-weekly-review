@@ -19,7 +19,7 @@
 body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;margin:0}
 .wrap{max-width:760px;margin:0 auto;padding-inline:20px;padding-block:0 72px}
 h1,h2,h3,.eyebrow,.time,.place,nav a{font-family:var(--display);text-transform:uppercase;letter-spacing:.02em}
-nav{display:flex;gap:20px;padding-block:20px 0}
+nav{display:flex;flex-wrap:wrap;gap:8px 20px;padding-block:20px 0}
 nav a{color:var(--muted);text-decoration:none;font-size:14px;letter-spacing:.14em;padding-bottom:4px;border-bottom:2px solid transparent}
 nav a[aria-current]{color:var(--fg);border-color:var(--red)}
 nav a:focus-visible{outline:2px solid var(--red);outline-offset:4px}
@@ -79,6 +79,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
   <nav aria-label="Tom's pages">
     <a href="./">Weekly Review</a>
     <a href="day.html" aria-current="page">Your Day</a>
+    <a href="swipe.html">Swiping</a>
   </nav>
 
   <header class="hero">
