@@ -144,13 +144,31 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
   </section>
 
   <section>
-    <div class="week-head"><h2>Week 1</h2><span class="tag">Oct 12 · your first month</span></div>
+    <div class="week-head"><h2>Week 2</h2><span class="tag">Oct 12 to 20 · 25 videos</span></div>
+    <div class="stats">
+      <div><span class="v">2.02M</span><span class="l">Instagram views</span></div>
+      <div><span class="v">+286</span><span class="l">New followers</span></div>
+      <div><span class="v">1.03M</span><span class="l">Facebook views, #1 video</span></div>
+    </div>
+    <div class="chart" id="chart2">
+      <h3>Top 5 by views</h3>
+    </div>
+    <div class="take">
+      <p><b>A fight wins:</b> On #1, people argued "raw or perfect?" 1,758 comments. Top comment: "Take it to the vet homie it's not too late" (508 likes).</p>
+      <p><b>New food wins followers:</b> The scotch eggs got the most shares (2,167), saves (799) and follows (138). People ask for the recipe.</p>
+      <p><b>Copies did not repeat:</b> The same food again got 3K to 11K. Look for the next new thing.</p>
+      <p><b>Comments to answer with a video:</b> "What's the knife?" · "How do you get that crust with no grey band?" · "Recipe please"</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="week-head"><h2>Week 1</h2><span class="tag">Sep 28 to Oct 11 · first month</span></div>
     <div class="stats">
       <div><span class="v">114,483</span><span class="l">Views</span></div>
       <div><span class="v">+123</span><span class="l">New followers</span></div>
       <div><span class="v">401</span><span class="l">Profile visits</span></div>
     </div>
-    <div class="chart" id="chart">
+    <div class="chart" id="chart1">
       <h3>Top 5 by views</h3>
     </div>
     <div class="take">
@@ -163,22 +181,35 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
 </div>
 
 <script>
-const winners = [
-  {name: "Ribeye halves, held up", views: 13744, note: "Held close to the camera. Pineapple behind."},
-  {name: "Beef rib bone pull", views: 11800, note: "Bone slides out clean. Most follows (9)."},
-  {name: "Steak stack, outside", views: 9444, note: "New place. Huge pile of meat."},
-  {name: "“Can you guess the cut?”", views: 8595, note: "A question. Most comments (7)."},
-  {name: "Skirt rolls", views: 7979, note: "Strange shape. Opinion in the caption."}
-];
-const peak = Math.max(...winners.map(w => w.views));
-const chart = document.getElementById("chart");
-winners.forEach((w, i) => {
-  const row = document.createElement("div");
-  row.className = i === 0 ? "row top" : "row";
-  row.innerHTML = `<div class="row-top"><b>${i + 1}. ${w.name}</b><span class="views">${(w.views / 1000).toFixed(1)}K</span></div>
-    <div class="track"><div class="fill" style="width:${(w.views / peak * 100).toFixed(1)}%"></div></div>
-    <small>${w.note}</small>`;
-  chart.appendChild(row);
+const weeks = {
+  chart2: [
+    {name: "Ribeye stack, pineapple", views: 1668455, note: "Started a raw-or-perfect fight. 1,758 comments."},
+    {name: "Smoked & flash-fried scotch eggs", views: 226374, note: "New food. Most shares (2,167) and follows (138)."},
+    {name: "Reverse-seared tomahawk", views: 31887, note: "Giant cut. Classic song (Green Onions)."},
+    {name: "THICK ribeye stack", views: 11236, note: "Same idea as #1. It did not pop the same way."},
+    {name: "Smoked & seared ribeye", views: 8914, note: "Steady steak video."}
+  ],
+  chart1: [
+    {name: "Ribeye halves, held up", views: 13744, note: "Held close to the camera. Pineapple behind."},
+    {name: "Beef rib bone pull", views: 11800, note: "Bone slides out clean. Most follows (9)."},
+    {name: "Steak stack, outside", views: 9444, note: "New place. Huge pile of meat."},
+    {name: "“Can you guess the cut?”", views: 8595, note: "A question. Most comments (7)."},
+    {name: "Skirt rolls", views: 7979, note: "Strange shape. Opinion in the caption."}
+  ]
+};
+const fmt = v => v >= 1e6 ? (v / 1e6).toFixed(2) + "M" : v >= 1e5 ? Math.round(v / 1000) + "K" : (v / 1000).toFixed(1) + "K";
+Object.entries(weeks).forEach(([id, list]) => {
+  const chart = document.getElementById(id);
+  if (!chart) return;
+  const peak = Math.max(...list.map(w => w.views));
+  list.forEach((w, i) => {
+    const row = document.createElement("div");
+    row.className = i === 0 ? "row top" : "row";
+    row.innerHTML = `<div class="row-top"><b>${i + 1}. ${w.name}</b><span class="views">${fmt(w.views)}</span></div>
+      <div class="track"><div class="fill" style="width:${Math.max(1, w.views / peak * 100).toFixed(1)}%"></div></div>
+      <small>${w.note}</small>`;
+    chart.appendChild(row);
+  });
 });
 </script>
 
