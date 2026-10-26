@@ -85,6 +85,9 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
 .alert{border:2px solid var(--red);background:var(--red-soft);padding:18px 20px;display:grid;gap:6px}
 .alert b{font-family:var(--display);text-transform:uppercase;color:var(--red);font-size:22px;letter-spacing:.03em}
 .alert p{margin:0}
+.stats .warn{background:var(--red-soft);outline:2px solid var(--red);outline-offset:-2px}
+.stats .warn .v{color:var(--red)}
+.wl{font-family:var(--display);text-transform:uppercase;color:var(--red);font-size:13px;letter-spacing:.1em;font-weight:700}
 </style>
 </head>
 <body>
@@ -154,7 +157,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
       <p>Your ribeye is still getting views (2.29M). This is the time when more videos get pushed. Don't slow down now.</p>
     </div>
     <div class="stats">
-      <div><span class="v">8</span><span class="l">Videos (goal: 25)</span></div>
+      <div class="warn"><span class="wl">⚠️ Warning!</span><span class="v">8</span><span class="l">Videos (goal: 25)</span></div>
       <div><span class="v">+100</span><span class="l">New followers (518)</span></div>
       <div><span class="v">19.7K</span><span class="l">Best new video</span></div>
     </div>
