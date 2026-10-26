@@ -82,6 +82,9 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
   .fill{animation:grow .9s cubic-bezier(.2,.7,.2,1) both}
   @keyframes grow{from{width:0}}
 }
+.alert{border:2px solid var(--red);background:var(--red-soft);padding:18px 20px;display:grid;gap:6px}
+.alert b{font-family:var(--display);text-transform:uppercase;color:var(--red);font-size:22px;letter-spacing:.03em}
+.alert p{margin:0}
 </style>
 </head>
 <body>
@@ -144,6 +147,28 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
   </section>
 
   <section>
+    <div class="week-head"><h2>Week 3</h2><span class="tag">Oct 21 to 25 · 8 videos</span></div>
+    <div class="alert">
+      <b>Post more: 5 a day</b>
+      <p>Last week you posted 8 videos in 5 days. The goal is at least 5 posts every day, trial reels or not. That's 25 a week.</p>
+      <p>Your ribeye is still getting views (2.29M). This is the time when more videos get pushed. Don't slow down now.</p>
+    </div>
+    <div class="stats">
+      <div><span class="v">8</span><span class="l">Videos (goal: 25)</span></div>
+      <div><span class="v">+100</span><span class="l">New followers (518)</span></div>
+      <div><span class="v">19.7K</span><span class="l">Best new video</span></div>
+    </div>
+    <div class="chart" id="chart3">
+      <h3>Top 5 new videos by views</h3>
+    </div>
+    <div class="take">
+      <p><b>Texas BBQ wins again:</b> Beef hot links got 19.7K, your best new video. Your people.</p>
+      <p><b>Good:</b> You made 3 "raw or perfect" versions. Keep making versions of your winners.</p>
+      <p><b>Your 2 winners keep growing:</b> Ribeye 2.29M (plus 1.64M on Facebook). Scotch eggs 270K, with 203 follows.</p>
+    </div>
+  </section>
+
+  <section>
     <div class="week-head"><h2>Week 2</h2><span class="tag">Oct 12 to 20 · 25 videos</span></div>
     <div class="stats">
       <div><span class="v">2.02M</span><span class="l">Instagram views</span></div>
@@ -182,6 +207,13 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
 
 <script>
 const weeks = {
+  chart3: [
+    {name: "Texas-style beef hot links", views: 19731, note: "Texas BBQ. Your people."},
+    {name: "\"You Be The Judge! Is It Raw or PERFECT?\"", views: 7651, note: "A version of your ribeye winner."},
+    {name: "Smoked Texas hot links with jalapeños", views: 4196, note: "Same food, new edit."},
+    {name: "\"THAT'S MEDIUM RARE! CRY ABOUT IT!\"", views: 3734, note: "Another raw-or-perfect version."},
+    {name: "\"What Do You Think About This Steak Stack?\"", views: 3649, note: "Steak stack again."}
+  ],
   chart2: [
     {name: "Ribeye stack, pineapple", views: 1668455, note: "Started a raw-or-perfect fight. 1,758 comments."},
     {name: "Smoked & flash-fried scotch eggs", views: 226374, note: "New food. Most shares (2,167) and follows (138)."},
